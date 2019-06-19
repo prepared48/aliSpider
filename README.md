@@ -1,13 +1,14 @@
-a scrawler for alibaba Recruitment
-安装 python
+# a scrawler for alibaba Recruitment
+
+## 安装 python
 
 这个就不用我说了吧，网上教程一大堆
 
-安装 scrapy 包
+## 安装 scrapy 包
 
     pip install scrapy
     
-创建 scrapy 项目
+## 创建 scrapy 项目
 
     scrapy startproject aliSpider
     
@@ -17,7 +18,7 @@ cmd 进入项目目录，执行命令：
 
     scrapy genspider -t crawl alispi job.alibaba.com
     
-编写 items.py 文件
+## 编写 items.py 文件
 
     # -*- coding: utf-8 -*-
     
@@ -35,7 +36,7 @@ cmd 进入项目目录，执行命令：
         workPosition = scrapy.Field()
         jobclass = scrapy.Field()
         
-编写 alispi.py 文件
+## 编写 alispi.py 文件
 
     # -*- coding: utf-8 -*-
     import scrapy
@@ -65,7 +66,7 @@ cmd 进入项目目录，执行命令：
                 item['jobclass'] = each.xpath("./td[2]/span/text()").extract()
                 yield item
 
-执行
+## 执行
 
     scrapy crawl alispi
     
